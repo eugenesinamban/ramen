@@ -1,0 +1,43 @@
+version: "3.7"
+services:       
+    # Php+Nginx Service
+        php-fpm:
+                build:
+                        context: ./
+                        dockerfile: docker/php-fpm/Dockerfile
+                image: ramen_php-fpm
+        
+        # local
+        lcl:
+                build:
+                        context: ./
+                        dockerfile: docker/local/Dockerfile
+                image: ramen_lcl:latest
+                container_name: ramen_lcl
+                tty: true
+                stdin_open: true
+                ports: 
+                        - 11001:80
+                env_file: 
+                        - ramen-deploy/.env.local
+                environment: 
+                        - APP_ENV=local
+                        - APP_DEBUG=true
+                volumes: 
+                        - /app/vendor/
+                        - /app/node_modules/
+                        - /app/public/assets/js/
+                        - /app/public/assets/css/
+                        - /app/storage
+                        - .:/app/
+                depends_on: 
+                        - redis
+                        
+        redis:
+                image: redis:alpine
+                container_name: ramen_redis
+                ports: 
+                        - "6379"
+                        
+volumes:
+        ramen_dbdata:

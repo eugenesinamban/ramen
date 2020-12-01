@@ -1,0 +1,3 @@
+[submodule "ramen-deploy"]
+	path = ramen-deploy
+	url = git@github.com:eugenesinamban/ramen-deploy.git
