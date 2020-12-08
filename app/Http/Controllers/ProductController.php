@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Http;
 use App\Repositories\ProductRepository;
 
-class PageController extends Controller
+class ProductController extends Controller
 {
     protected $productRepository;
 
@@ -16,6 +15,7 @@ class PageController extends Controller
 
     public function index() {
         $response = $this->productRepository->getAllProducts()->json();
-        dd($response);
+        $data = $response['data'];
+        return view('product.index', compact('data'));
     }
 }

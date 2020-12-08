@@ -17,7 +17,6 @@ class ProductRepository
     }
 
     public function getAllProducts() {
-        dd($this->product);
         return Http::get($this->host);
     }
 
