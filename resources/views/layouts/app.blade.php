@@ -21,10 +21,8 @@
 </head>
 <body>
     <div id="app">
-        <main class="py-4">
-            {{-- @include('include.message') --}}
-            @yield('content')
-        </main>
+        @include('layouts.header')
+        @yield('content')
     </div>
 </body>
 </html>

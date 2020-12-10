@@ -6,6 +6,12 @@ $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
+$breakpoints: (
+  tablet: 1040px,
+  phone: 680px
+  // phone: 414px
+) !default;
+
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
