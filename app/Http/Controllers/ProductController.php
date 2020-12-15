@@ -16,6 +16,7 @@ class ProductController extends Controller
     public function index() {
         $response = $this->productRepository->getAllProducts()->json();
         $data = $response['data'];
+        // dd($data);
         return view('product.index', compact('data'));
     }
 }

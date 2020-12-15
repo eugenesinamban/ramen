@@ -3,6 +3,9 @@
     <div class="card-body">
         <h5 class="card-title">{{ $datum['text'] }}</h5>
         <p class="card-text"></p>
+        <p>{{ $datum['image_url']}}</p>
+        {{-- <img src="{{ $datum['image_url'] }}" alt="" srcset=""> --}}
+        <p>{{ $datum['description'] }}</p>
         <div class="row">
             <div class="col-6 text-left">
                 <a href="/" class="btn btn-danger">ページへ</a>
